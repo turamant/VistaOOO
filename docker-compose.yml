@@ -15,6 +15,11 @@ services:
   db:
     image: 'postgres:12-alpine'
     restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     environment:
         DATABASE_URL: postgres://postgres@db/postgres
         POSTGRES_PASSWORD: postgres
+
+volumes:
+        postgres_data:
